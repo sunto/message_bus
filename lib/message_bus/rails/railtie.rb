@@ -13,7 +13,7 @@ class MessageBus::Rails::Railtie < ::Rails::Railtie
     #
     # To handle either case, we insert it before ActionDispatch::Flash.
     #
-    app.middleware.insert_before(ActionDispatch::Flash, MessageBus::Rack::Middleware)
+    app.middleware.use(MessageBus::Rack::Middleware)
     MessageBus.logger = Rails.logger
   end
 end
